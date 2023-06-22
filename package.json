@@ -23,6 +23,7 @@
         "vite": "^3.0.0"
     },
     "dependencies": {
+        "@tailwindcss/line-clamp": "^0.4.4",
         "daisyui": "^2.37.0"
     }
 }
