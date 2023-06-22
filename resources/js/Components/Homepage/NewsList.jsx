@@ -1,32 +1,48 @@
 const isNews = (news) => {
-    return news.map((data,i)=> {
-        return <div key={i} className="card w-full lg:w-96 bg-white shadow-xl">
-        <figure>
-            <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
-        </figure>
-        <div className="card-body">
-          <h2 className="card-title">
-            {data.title}
-            <div className="badge badge-secondary">NEW</div>
-          </h2>
-          <p>{data.description}</p>
-          <div className="card-actions justify-end">
-            <div className="badge badge-inline">{data.category}</div> 
-            <div className="badge badge-outline">{data.author}</div>
-          </div>
-        </div>
-      </div>
-    })
-}
+    return news.map((data, i) => {
+        return (
+            <div
+                key={i}
+                className="w-full bg-white border-b py-4 border-gray-300/40 flex flex-row-reverse"
+            >
+                <img
+                    src="https://placeimg.com/400/225/arch"
+                    alt="Shoes"
+                    className="w-36 h-36 object-cover p-4"
+                />
+                <div className="p-4 flex flex-col w-full">
+                    <div className="flex justify-between items-center">
+                        <div className="flex items-center space-x-3 mb-3">
+                            <img
+                                src="https://placeimg.com/400/225/arch"
+                                alt="Shoes"
+                                width={1080}
+                                height={1080}
+                                className="object-cover w-8 h-8 rounded-full"
+                            />
+                            <p>{data.author}</p>
+                        </div>
+                        <div className="px-4 w-fit rounded-full text-xs py-2 bg-gray-300/40">
+                            {data.category}
+                        </div>
+                    </div>
 
-const noNews =  () => {
-    return(
-        <div>Saat ini tidak ada berita tersedia</div>
-    )
-}
+                    <h1 className="text-xl hover:underline font-semibold">
+                        {data.title}
+                    </h1>
+                    <p className="my-2">{data.description}</p>
+                </div>
+            </div>
+        );
+    });
+};
+
+const noNews = () => {
+    return <div>Saat ini tidak ada berita tersedia</div>;
+};
 
 const NewsList = ({ news }) => {
-    return !news ? noNews() : isNews(news)
-}
+    return !news ? noNews() : isNews(news);
+};
 
-export default NewsList
+export default NewsList;
